@@ -8,21 +8,37 @@ let mode = document.querySelector(".mode");
 let date = document.querySelector(".date");
 let input = document.querySelectorAll("input");
 
+
+
+// let product=[]
 createBtn.addEventListener("click", () => {
-  const product = JSON.parse(localStorage.getItem("product")) || [];
-  product.push({
-    name: nazVal.value,
-    img: urlVal.value,
-    price: priceVal.value,
-    catygorya: categorVal.value,
-    id: new Date(),
-  });
+  // const product = JSON.parse(localStorage.getItem("product")) || [];
+  let newProduct={
+      name: nazVal.value,
+      img: urlVal.value,
+      price: priceVal.value,
+      catygorya: categorVal.value,
+      id: new Date(),
+    }
+  fetch('http://localhost:3000/%20products',{
+    method:"POST",
+    body:JSON.stringify(newProduct)
+  })
+  // .then((res)=>res.json())
+  // .then((date)=>product=date)
+  // product.push({
+  //   name: nazVal.value,
+  //   img: urlVal.value,
+  //   price: priceVal.value,
+  //   catygorya: categorVal.value,
+  //   id: new Date(),
+  // });
 
-  localStorage.setItem("product", JSON.stringify(product));
-  console.log(product);
+  // localStorage.setItem("product", JSON.stringify(product));
+ 
 });
-
-// input.forEach((el) => el.classList.remove("light"));
+ console.log(newProduct);
+input.forEach((el) => el.classList.remove("light"));
 
 let modeLocal = localStorage.getItem("mode");
 if (modeLocal === "white") {

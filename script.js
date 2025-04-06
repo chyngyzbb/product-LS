@@ -1,45 +1,3 @@
-// const products = [
-//   {
-//     id: 1,
-//     catygorya: "notebook",
-//     img: "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08089911.png",
-//     name: "Ноутбук",
-//     price: 45000,
-//     description: "Core i5, 8GB RAM, 256GB SSD",
-//   },
-//   {
-//     id: 2,
-//     catygorya: "phone",
-//     img: "https://www.oppo.com/content/dam/oppo/common/mkt/v2-2/reno13-series/list-page/reno13-5g/blue.png",
-//     name: "Смартфон",
-//     price: 25000,
-//     description: "6.5 дюйм, 128GB, 48MP камера",
-//   },
-//   {
-//     id: 3,
-//     catygorya: "tv",
-//     img: "https://sonycenter.kz/image/cache/catalog/products/old/KD50X85TJR/KD50X85TJR-9918-600x600.png",
-//     name: "Телевизор",
-//     price: 32000,
-//     description: "43 дюйм, Smart TV, 4K",
-//   },
-//   {
-//     id: 4,
-//     catygorya: "foto",
-//     img: "https://topfotograf.ru/wp-content/uploads/2022/04/nikon-d5100-kit-1024x791.png",
-//     name: "Фотоаппарат",
-//     price: 55000,
-//     description: "Зеркалка, 24.2MP, 4K видео",
-//   },
-//   {
-//     id: 5,
-//     catygorya: "naush",
-//     img: "https://cdn0.it4profit.com/s3size/rt:fill/w:900/h:900/g:no/el:1/f:webp/plain/s3://cms/product/f9/44/f944c4c3c4879419dd73f34eadbce538/240911160023980944.webp",
-//     name: "Наушники",
-//     price: 5000,
-//     description: "Беспроводные, Bluetooth 5.0",
-//   },
-// ];
 
 let productList = document.querySelector(".product-list");
 let min = document.querySelector(".min");
@@ -60,9 +18,42 @@ let delet = document.querySelector(".delete");
 let mode = document.querySelector(".mode");
 let date = document.querySelector(".date");
 let listt = document.querySelector(".list");
-// let contain = document.querySelector(".");
+let apiBtn = document.querySelector(".api");
+let lsBtn = document.querySelector(".ls");
+let allBtn = document.querySelector(".all");
+let todoBtn = document.querySelector(".todo");
+let dbBtn = document.querySelector(".db");
 
+let valueTextTodo = document.querySelector('.valueTextTodo')
+let valueDateTodo = document.querySelector('.valueDateTodo')
+let addTodo = document.querySelector('.addTodo')
+
+let where=''
 let LS = JSON.parse(localStorage.getItem("product"));
+let  api = []
+let  db = []
+let ALL=[]
+
+fetch('http://localhost:3000/%20products')
+.then((res)=>res.json())
+.then((date)=>{
+  db=date
+  // ALL.push(...db,...api,...LS)
+  // console.log(ALL);
+})
+
+fetch('https://fakestoreapi.com/products')
+.then((res)=>res.json())
+.then((date)=>{
+  api=date
+  ALL.push(...db,...api,...LS)
+  console.log(ALL);
+})
+
+
+
+console.log(ALL);
+
 
 const createProduct = (prod) => {
   productList.innerHTML = "";
@@ -71,15 +62,15 @@ const createProduct = (prod) => {
     list.className = "list";
 
     const title = document.createElement("h3");
-    title.textContent = product.name;
+    title.textContent = product.name || product.title.slice(0,35);
     title.className = "title";
 
     const img = document.createElement("img");
-    img.setAttribute("src", product.img);
+    img.setAttribute("src", product.img || product.image);
     img.className = "img";
 
     const price = document.createElement("h5");
-    price.textContent = product.price;
+    price.textContent = product.price+` coм`;
     price.className = "price";
 
     const delet = document.createElement("button");
@@ -101,10 +92,10 @@ const createProduct = (prod) => {
   });
 };
 
-const renderProduct=()=>{
-  let res=JSON.parse(localStorage.getItem('product'))
-  createProduct(res)
-}
+// const renderProduct=()=>{
+//   let res=JSON.parse(localStorage.getItem('product'))
+//   createProduct(res)
+// }
 setInterval(() => {
   let now = new Date();
   let hours = now.getHours();
@@ -118,23 +109,42 @@ setInterval(() => {
 
 
 function sortmin() {
-  let res = LS.sort((a, b) => a.price - b.price);
-  createProduct(res);
+  let res=''
+  if(where==='api'){
+    res=api.sort((a,b)=>a.price-b.price)
+    createProduct(res)
+  }else if(where==="ls"){
+    res = LS.sort((a, b) => a.price - b.price);
+   createProduct(res);
+ }else{
+   res = ALL.sort((a, b) => a.price - b.price);
+   createProduct(res);
+ }
 }
 function sortmax() {
-  let res = LS.sort((a, b) => b.price - a.price);
+  let res=''
+  if(where==='api'){
+    res=api.sort((a,b)=>b.price-a.price)
+    createProduct(res)
+  }else if(where==="ls"){
+   res = LS.sort((a, b) => b.price - a.price);
   createProduct(res);
+}else{
+  res = ALL.sort((a, b) => b.price - a.price);
+  createProduct(res);
+}
 }
 function sortCategor(categ) {
   let res = LS.filter((el) => el.catygorya === categ);
   createProduct(res);
+  where='ls'
 }
 
 function removeProduct(id) {
   let url=JSON.parse(localStorage.getItem('product'))
   let res = url.filter((el) => el.id !== id);
   localStorage.setItem("product", JSON.stringify(res));
-  renderProduct()
+  createProduct(LS)
 }
 
 let modeLocal = localStorage.getItem("mode");
@@ -156,6 +166,22 @@ mode.addEventListener("click", () => {
     localStorage.setItem("mode", "white");
   }
 });
+dbBtn.addEventListener('click',()=>{
+  createProduct(db)
+  where='db'
+})
+apiBtn.addEventListener('click',()=>{
+  createProduct(api)
+  where='api'
+})
+lsBtn.addEventListener('click',()=>{
+  createProduct(LS)
+  where='ls'
+})
+allBtn.addEventListener('click',()=>{
+  createProduct(ALL)
+  where='all'
+})
 
 phone.addEventListener("click", () => {
   sortCategor("phone");
@@ -175,4 +201,22 @@ naush.addEventListener("click", () => {
 min.addEventListener("click", sortmin);
 max.addEventListener("click", sortmax);
 
-createProduct(LS)
+
+// let newTodo=[
+//   {
+//     text:valueTextTodo.value,
+//     date:valueDateTodo.value
+//   }
+// ]
+// //////////////////////////// ToDo
+
+// addTodo.addEventListener("click",()=>{console.log('hello')})
+
+
+
+
+
+
+
+
+  createProduct(LS)
