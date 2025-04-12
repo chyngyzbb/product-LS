@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="container">
-        
-        <div class="box">
-            <h1>Товарлардын тизмеси</h1>
-            <div class="fixed-mode">
-                <div class="date"></div>
-                <button class="mode">mode</button>
+      <div class="box">
+        <div class="my-modal">
+          <div class="container-modal">
+            <div class="inputTodo">
+              <input class="valueTextTodo" type="text" placeholder="Текст" />
+              <input class="valueDateTodo" type="date" />
             </div>
-            <div class="nav-bar">
-                <a href="./createProduct.html">Жаңы товар кошуу</a>
-                <a href="./todo.html" class="todo">To Do</a>
-                <button class="max">Чоң баа боюнча иреттөө</button>
-                <button class="min">Кичине баа боюнча иреттөө</button>
-                <button class="db">JSON</button>
-                <button class="api">API</button>
-                <button class="ls">LS</button>
-                <button class="all">ALL</button>
+            <div class="btns">
+              <button class="closeTodo">Кайтуу</button>
+              <button class="addTodo">Кошуу</button>
             </div>
-            <div class="categor">
-                <button class="naush">Наушники</button>
-                <button class="foto">Фотоаппараты</button>
-                <button class="tv">Телевизоры</button>
-                <button class="phone">Смартфоны</button>
-                <button class="notebook">Ноутбуки</button>
-            </div>
-            <div class="product-list">
-    
-            </div>
+            <ol class="todoList"></ol>
+          </div>
         </div>
+        <div class="my-create">
+          <div class="container-create">
+            <h1>Жаңы товар кошуу</h1>
+            <div class="radio">
+              <span
+                ><h5>LS</h5>
+                <input class="radioLS" type="checkbox"
+              /></span>
+              <span
+                ><h5>JSON</h5>
+                <input class="radioJSON" type="checkbox"
+              /></span>
+              <span
+                ><h5>mockAPI</h5>
+                <input class="radioMock" type="checkbox"
+              /></span>
+            </div>
+            <div class="formDate">
+              <input class="nazVal" type="text" placeholder="Название" />
+              <input class="urlVal" type="text" placeholder="URL Картинки" />
+              <input class="priceVal" type="text" placeholder="Цены" />
+              <select class="categorVal">
+                <option value="phone">Смартфон</option>
+                <option value="tv">Телевизор</option>
+                <option value="foto">Фотоаппарат</option>
+                <option value="notebook">Ноутбук</option>
+                <option value="naush">Наушники</option>
+              </select>
+              <div class="btns">
+                <button class="close-create">Артка</button>
+                <button class="createbtn">Кошуу</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1>Товарлардын тизмеси</h1>
+        <div class="fixed-mode">
+          <div class="date"></div>
+          <button class="mode">mode</button>
+        </div>
+        <div class="nav-bar">
+          <button class="open-create">Товар кошуу</button>
+          <button class="open-todo">To Do</button>
+          <button class="db">JSON</button>
+          <button class="mock">mockAPI</button>
+          <button class="api">fakeAPI</button>
+          <button class="ls">LS</button>
+          <button class="all">ALL</button>
+        </div>
+        <div class="categor">
+          <button class="max">Жогоруга</button>
+          <button class="min">Төмөнгө</button>
+          <button class="naush">Наушники</button>
+          <button class="foto">Фотоаппараты</button>
+          <button class="tv">Телевизоры</button>
+          <button class="phone">Смартфоны</button>
+          <button class="notebook">Ноутбуки</button>
+        </div>
+        <div class="product-list"></div>
+      </div>
     </div>
 
     <script src="./script.js"></script>
     <!-- <script src="./scripttwo.js"></script> -->
-</body>
+  </body>
 </html>
