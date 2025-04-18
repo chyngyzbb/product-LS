@@ -483,7 +483,7 @@ mode.addEventListener("click", () => {
   if (modeLocal === "white") {
     document.body.className = "light";
     localStorage.setItem("mode", "black");
-    listt.style.background = "red";
+    // listt.style.background = "red";
   } else {
     document.body.removeAttribute("class");
     localStorage.setItem("mode", "white");
