@@ -550,4 +550,4 @@ max.addEventListener("click", sortmax);
 getLS();
 getDbJson();
 getAll();
-renderProduct(LS);
+renderProduct(mockApi);
