@@ -1,60 +1,6 @@
 {
   " products": [
     {
-      "id": "1",
-      "catygorya": "notebook",
-      "img": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08089911.png",
-      "name": "Ноутбук",
-      "price": "45000",
-      "description": "Core i5, 8GB RAM, 256GB SSD"
-    },
-    {
-      "id": "2",
-      "catygorya": "phone",
-      "img": "https://www.oppo.com/content/dam/oppo/common/mkt/v2-2/reno13-series/list-page/reno13-5g/blue.png",
-      "name": "Смартфон",
-      "price": "25000",
-      "description": "6.5 дюйм, 128GB, 48MP камера"
-    },
-    {
-      "id": "3",
-      "catygorya": "tv",
-      "img": "https://sonycenter.kz/image/cache/catalog/products/old/KD50X85TJR/KD50X85TJR-9918-600x600.png",
-      "name": "Телевизор",
-      "price": "32000",
-      "description": "43 дюйм, Smart TV, 4K"
-    },
-    {
-      "id": "4",
-      "catygorya": "foto",
-      "img": "https://topfotograf.ru/wp-content/uploads/2022/04/nikon-d5100-kit-1024x791.png",
-      "name": "Фотоаппарат",
-      "price": "55000",
-      "description": "Зеркалка, 24.2MP, 4K видео"
-    },
-    {
-      "id": "5",
-      "catygorya": "naush",
-      "img": "https://cdn0.it4profit.com/s3size/rt:fill/w:900/h:900/g:no/el:1/f:webp/plain/s3://cms/product/f9/44/f944c4c3c4879419dd73f34eadbce538/240911160023980944.webp",
-      "name": "Наушники",
-      "price": "5000",
-      "description": "Беспроводные, Bluetooth 5.0"
-    },
-    {
-      "id": "2025-04-06T10:39:40.606Z",
-      "name": "Audi",
-      "img": "https://bluesky-cogcms.cdn.imgeng.in/media/lizl3frd/white-audi-tt-ff.png?&width=1500&center=0.5,0.5&mode=crop&scale=both",
-      "price": "1400000",
-      "catygorya": "foto"
-    },
-    {
-      "id": "2025-04-08T10:42:53.311Z",
-      "name": "wwwww",
-      "img": "wwwww",
-      "price": "wwwww",
-      "catygorya": "phone"
-    },
-    {
       "id": "2025-04-08T10:43:40.024Z",
       "name": "Cybertruck",
       "img": "https://crdms.images.consumerreports.org/c_lfill,w_470,q_auto,f_auto/prod/cars/cr/car-versions/29885-2024-tesla-cybertruck-foundation-series",
@@ -66,20 +12,6 @@
       "name": "Tesla",
       "img": "https://manuals.plus/wp-content/uploads/2023/12/TESLA-225601-Cybertruck-featured.png?ezimgfmt=rs:412x659/rscb1/ng:webp/ngcb1",
       "price": "1000000",
-      "catygorya": "phone"
-    },
-    {
-      "id": "2025-04-08T16:51:14.651Z",
-      "name": "Allllllll",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png",
-      "price": "5",
-      "catygorya": "phone"
-    },
-    {
-      "id": "1df3",
-      "name": "ttttttttt",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png",
-      "price": "4",
       "catygorya": "phone"
     },
     {

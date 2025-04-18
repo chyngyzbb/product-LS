@@ -187,8 +187,21 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 9px;
-  button {
+  .btns{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+  }.delete {
     background: red;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 11px;
+  }
+  .edit-btn{
+    background: grey;
     color: white;
     width: 70px;
     height: 30px;
@@ -307,4 +320,48 @@ font-size: 14px;
   background: #49174c;
   /* padding: 20px; */
   border-radius: 5px;
+}
+
+/* ////////  DETAIL PAGE */
+#detail{
+  margin-top: 30px;
+}
+.detail{
+  width: 90%;
+  height: 90%;
+  margin: auto auto;
+  .back-btn{
+    color: white;
+    background: red;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .desc{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .info-desc{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      width: 400px;
+      button{
+        background: #d2f0137a;
+        color: #f9f9f9;
+        padding: 5px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 3px;
+        font-weight: 500;
+      }
+    }
+    img{
+      width: 500px;
+    }
+  }
 }
