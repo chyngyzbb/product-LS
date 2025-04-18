@@ -47,6 +47,38 @@ let apiMOCK = "https://6765634852b2a7619f5f643f.mockapi.io/Task";
 let apiFACE = "https://fakestoreapi.com/products";
 let apiJSON = "http://localhost:3000/ products";
 
+// ////  ПЕРЕМЕННЫЕ
+let whatAPI=[]
+let focus=[]
+let where = "No";
+let LS = [];
+let api = [];
+let db = [];
+let mockApi = [];
+let ALL = [];
+
+
+function whereFocus(text){
+  where=text
+  
+  if(where==='db'){
+    focus=db
+    whatAPI=apiJSON
+  }else if(where==='mock'){
+    focus=mockApi
+    whatAPI=apiMOCK
+  }else if(where==='ls'){
+    focus=LS
+    
+  }else if(where==='api'){
+    focus=api
+    whatAPI=apiFACE
+  }else if(where==="all"){
+    focus=ALL
+  }
+
+}
+
 // //////ToDo
 closeTodo.addEventListener("click", () => {
   myModal.style.display = "none";
@@ -151,6 +183,8 @@ function lsProduct() {
   dat.push(...res, ...newProd);
   localStorage.setItem("product", JSON.stringify(dat));
 }
+console.log(editId);
+console.log(whatAPI);
 
 createBtn.addEventListener("click", () => {
   let editLoc=JSON.parse(localStorage.getItem('edit'))
@@ -170,6 +204,10 @@ createBtn.addEventListener("click", () => {
         // id: new Date(),
       }),
     });
+    getMockApi()
+    whereFocus()
+    // setTimeout(()=>{renderProduct(focus)},1000)
+
   }else{
      radioVal.json === false
     ? ""
@@ -215,34 +253,8 @@ radioVal.mock
   : radioMock.removeAttribute("checked");
 
 
-function whereFocus(text){
-  where=text
-  
-  if(where==='db'){
-    focus=db
-    whatAPI=apiJSON
-  }else if(where==='mock'){
-    focus=mockApi
-    whatAPI=apiMOCK
-  }else if(where==='ls'){
-    focus=LS
-    
-  }else if(where==='api'){
-    focus=api
-    whatAPI=apiFACE
-  }else if(where==="all"){
-    focus=ALL
-  }
 
-}
-let whatAPI=[]
-let focus=[]
-let where = "No";
-let LS = [];
-let api = [];
-let db = [];
-let mockApi = [];
-let ALL = [];
+
 
 // function getAPI(){
 
@@ -347,7 +359,8 @@ const renderProduct = (prod) => {
       nazVal.value=product.name || product.title
       priceVal.value=product.price
       categorVal.value=product.catygorya
-      editId.value=product.id
+      editId=product.id
+// console.log(editId);
 
     })
 

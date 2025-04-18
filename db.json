@@ -8,17 +8,24 @@
       "catygorya": "phone"
     },
     {
-      "id": "2025-04-08T16:41:56.807Z",
-      "name": "Tesla",
+      "name": "tanka 2000",
       "img": "https://manuals.plus/wp-content/uploads/2023/12/TESLA-225601-Cybertruck-featured.png?ezimgfmt=rs:412x659/rscb1/ng:webp/ngcb1",
       "price": "1000000",
-      "catygorya": "phone"
+      "catygorya": "phone",
+      "id": "2025-04-08T16:41:56.807Z"
     },
     {
       "id": "f7be",
       "name": "Ula",
       "img": "https://pngicon.ru/file/uploads/rocket.png",
       "price": "3000000",
+      "catygorya": "phone"
+    },
+    {
+      "id": "2025-04-18T05:29:02.486Z",
+      "name": "apple",
+      "img": "https://www.iphones.ru/wp-content/uploads/2021/12/iphone-13-magsafe-case-2.jpg",
+      "price": "10",
       "catygorya": "phone"
     }
   ]
